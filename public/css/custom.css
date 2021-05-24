@@ -3,3 +3,13 @@ body {
     font-family: 'Source Code Pro', monospace;
 }
 
+.show {
+    margin-left: 100vh;
+}
+
+.hide {
+    margin-left: -100%;
+}
+
+
+
