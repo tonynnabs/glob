@@ -26,7 +26,7 @@ function createCanvas(image){
 }
 /**
  * Uploading Image to the canvas
- * @param {} e
+ * @param {e} e
  */
 const uploadImage = (e) => {
     container.innerHTML = '';
@@ -84,15 +84,19 @@ const uploadWatermark = (canvas, e) => {
 /**
  * Downloading finished images
  */
-function download(){
-    const image = canvas.toDataURL();
-    const link = document.createElement('a');
-    link.href = image;
-    link.download = 'image.png';
-    link.click();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    logoLoader.value = '';
-    imageLoader.value = '';
+function download(canvas){
+    let allCanvas = document.querySelectorAll('canvas');
+    for (var i = 0; i < allCanvas.length; i++) {
+        var canvas = allCanvas[i];
+        const image = canvas.toDataURL();
+        const link = document.createElement('a');
+        link.href = image;
+        link.download = 'image.png';
+        link.click();
+        logoLoader.value = '';
+        imageLoader.value = '';
+        canvas.remove();
+    }
 
 }
 
