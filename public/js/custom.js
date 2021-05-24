@@ -1,14 +1,20 @@
 var imageLoader = document.getElementById("uploadImage");
 var logoLoader = document.getElementById("uploadLogo");
-const canvas = document.getElementById("myCanvas");
-const ctx = canvas.getContext('2d');
 const downloadButton = document.getElementById('download');
+const container = document.getElementById('container');
 
-var reader = new FileReader();
-var img = new Image();
 
-const uploadImage = (e) => {
-    reader.readAsDataURL(e.target.files[0]);
+/**
+ * Creating a new canvas for each upload
+ * @param {image} image
+ */
+function createCanvas(image){
+    var reader = new FileReader();
+    var img = new Image();
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    container.append(canvas);
+    reader.readAsDataURL(image);
     reader.onload = () => {
         img.src = reader.result;
         img.onload = () => {
@@ -17,9 +23,42 @@ const uploadImage = (e) => {
             ctx.drawImage(img, 0, 0);
         };
     };
+}
+/**
+ * Uploading Image to the canvas
+ * @param {} e
+ */
+const uploadImage = (e) => {
+    container.innerHTML = '';
+    var i = 0;
+    var length = e.target.files.length;
+    while (i < length){
+        createCanvas(e.target.files[i]);
+        i++
+    }
 };
 
-const uploadLogo = (e) => {
+/**
+ * Drawing watermark
+ * @param {e} e
+ */
+function drawMark(e){
+    let allCanvas = document.querySelectorAll('canvas');
+    for (var i = 0; i < allCanvas.length; i++) {
+        uploadWatermark(allCanvas[i], e);
+    }
+}
+
+/**
+ * Uploading watermark
+ * @param {canvas} canvas
+ * @param {e} e
+ */
+const uploadWatermark = (canvas, e) => {
+    var reader = new FileReader();
+    var img = new Image();
+    var canvas = canvas;
+    var ctx = canvas.getContext('2d');
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = () => {
         img.src = reader.result;
@@ -42,6 +81,9 @@ const uploadLogo = (e) => {
     };
 };
 
+/**
+ * Downloading finished images
+ */
 function download(){
     const image = canvas.toDataURL();
     const link = document.createElement('a');
@@ -55,6 +97,6 @@ function download(){
 }
 
 imageLoader.addEventListener('change', uploadImage);
-logoLoader.addEventListener('change', uploadLogo);
+logoLoader.addEventListener('change', drawMark);
 downloadButton.addEventListener('click', download);
 

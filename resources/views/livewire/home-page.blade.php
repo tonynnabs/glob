@@ -12,13 +12,13 @@
         <div class="bg-gray-300 p-10 h-full w-full flex justify-center items-center"">
             <div class="flex flex-col">
                 <label for="uploadImage">Upload Image</label>
-                <input type="file" id="uploadImage" name="uploadImage">
+                <input type="file" id="uploadImage" name="uploadImage" multiple>
             </div>
         </div>
     </div>
     <div class="bg-white h-screen w-2/3 overflow-x-auto overflow-y-auto">
-        <div class="w-full h-screen  ">
-            <canvas  id="myCanvas"></canvas>
+        <div class="w-full h-screen " id="container">
+            {{-- <canvas  id="myCanvas"></canvas> --}}
         </div>
     </div>
 </div>
