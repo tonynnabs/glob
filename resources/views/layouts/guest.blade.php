@@ -17,7 +17,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
+    <body class="">
         {{ $slot }}
 
         <script src="{{ asset('js/custom.js') }}"></script>

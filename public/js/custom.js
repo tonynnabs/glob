@@ -4,6 +4,13 @@ const downloadButton = document.getElementById('download');
 const container = document.getElementById('container');
 
 
+function fitToContainer(canvas){
+    canvas.style.maxWidth='100%';
+    // canvas.style.maxHeight='100%';
+    canvas.width  = canvas.offsetWidth;
+    // canvas.height  = canvas.offsetHeight;
+  }
+
 /**
  * Creating a new canvas for each upload
  * @param {image} image
@@ -13,6 +20,7 @@ function createCanvas(image){
     var img = new Image();
     var canvas = document.createElement('canvas');
     var ctx = canvas.getContext('2d');
+    fitToContainer(canvas)
     container.append(canvas);
     reader.readAsDataURL(image);
     reader.onload = () => {

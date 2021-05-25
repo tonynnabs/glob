@@ -1,25 +1,47 @@
-<div class="flex flex-row">
-    <div class=" h-screen flex flex-col w-1/3">
-        <div>
-            <button class="bg-purple-400 text-white font-bold rounded-lg py-2 px-4 my-5" id="download">Download</button>
+<div class="flex flex-col lg:flex-row ">
+    <div class="bg-purple-600 h-screen flex flex-col w-96 z-50">
+        <div class="bg-purple-800">
+           <h1 id="logo" class="p-5 text-4xl text-white">Easymark</h1>
         </div>
-        <div class="bg-gray-200 p-10 h-full w-full flex justify-center items-center">
+        <div class="p-10 h-full w-full flex justify-center items-center">
             <div class="flex flex-col">
                 <label for="logo">Upload Logo</label>
                 <input type="file" name="logo" id="uploadLogo">
             </div>
         </div>
-        <div class="bg-gray-300 p-10 h-full w-full flex justify-center items-center"">
-            <div class="flex flex-col">
+        <div class="p-10 h-full w-full flex justify-center items-center"">
+            {{-- <div class="flex flex-col">
                 <label for="uploadImage">Upload Image</label>
                 <input type="file" id="uploadImage" name="uploadImage" multiple>
+            </div> --}}
+        </div>
+    </div>
+    <div class="w-full max-h-full relative flex flex-col">
+        <label for="uploadImage" class="cursor-pointer m-5 flex items-center border-gray-300 bg-gray-100 border-1 border-dashed border-2 p-5">
+            <input class="hidden" wire:model="image" type="file" id="uploadImage" name="uploadImage" multiple>
+            <div class="w-10 h-10">
+                <img  src="/storage/img/image.svg" alt="">
             </div>
+            <div class="ml-5 ">
+                <h3 class="font-bold text-purple-600">Upload Images <span class="text-gray-400 font-medium">or just drag and drop</span></h3>
+                <p class="text-gray-400 font-medium">Add at most 10 images</p>
+            </div>
+        </label>
+        <div class="bg-gray-200 h-full mx-5 flex overflow-x-auto overflow-y-auto" id="container">
+            {{-- canvas will be rendered here --}}
         </div>
+        <footer class="bg-white absolute w-full bottom-0 py-5 px-8" style="box-shadow: 0px 0 10px rgba(182, 182, 182, 0.8);">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-500">Made with <span class="text-red-500">&#10084;</span> <span class="text-blue-400 underline">Tonynnabs</span> </p>
+                </div>
+                <div>
+                    <button class="bg-purple-600 rounded-lg text-white py-2 px-4 text-lg" id="download">Download Images</button>
+                </div>
+            </div>
+
+        </footer>
     </div>
-    <div class="bg-white h-screen w-2/3 overflow-x-auto overflow-y-auto">
-        <div class="w-full h-screen " id="container">
-            {{-- <canvas  id="myCanvas"></canvas> --}}
-        </div>
-    </div>
+
 </div>
 
