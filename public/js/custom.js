@@ -71,15 +71,15 @@ const uploadWatermark = (canvas, e) => {
     reader.onload = () => {
         img.src = reader.result;
         img.onload = () => {
-            maxWidth = Math.round(canvas.width / 3);
-            maxHeight = Math.round(canvas.height / 3);
+            maxWidth = Math.round(canvas.width * 0.5);
+            maxHeight = Math.round(canvas.height * 0.5);
             width = img.width;
             height = img.height;
 
             i = 0;
             while(width > maxWidth && height > maxHeight){
-                width = width / 2;
-                height = height / 2;
+                width = width - 70;
+                height = height - 70;
                 i++;
             }
             ctx.globalAlpha = 0.5;

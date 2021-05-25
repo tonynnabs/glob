@@ -6,19 +6,14 @@
         <div class="p-10 h-full w-full flex justify-center items-center">
             <div class="flex flex-col">
                 <label for="logo">Upload Logo</label>
-                <input type="file" name="logo" id="uploadLogo">
+                <input disabled type="file" name="logo" id="uploadLogo">
             </div>
         </div>
-        <div class="p-10 h-full w-full flex justify-center items-center"">
-            {{-- <div class="flex flex-col">
-                <label for="uploadImage">Upload Image</label>
-                <input type="file" id="uploadImage" name="uploadImage" multiple>
-            </div> --}}
-        </div>
     </div>
+    <input class="hidden"  type="file" id="uploadImage" name="uploadImage" multiple>
     <div class="w-full max-h-full relative flex flex-col">
         <label for="uploadImage" class="cursor-pointer m-5 flex items-center border-gray-300 bg-gray-100 border-1 border-dashed border-2 p-5">
-            <input class="hidden" wire:model="image" type="file" id="uploadImage" name="uploadImage" multiple>
+
             <div class="w-10 h-10">
                 <img  src="/storage/img/image.svg" alt="">
             </div>
@@ -42,6 +37,7 @@
 
         </footer>
     </div>
+
 
 </div>
 
