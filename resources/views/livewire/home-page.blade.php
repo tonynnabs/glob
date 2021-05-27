@@ -6,7 +6,7 @@
         <div class="p-10 h-full w-full flex justify-center items-center">
             <div class="flex flex-col">
                 <label for="logo">Upload Logo</label>
-                <input disabled type="file" name="logo" id="uploadLogo">
+                <input type="file" name="logo" id="uploadLogo">
             </div>
         </div>
     </div>
