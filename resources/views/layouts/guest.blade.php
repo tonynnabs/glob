@@ -20,7 +20,7 @@
     <body class="">
         {{ $slot }}
 
-        <script src="'js/custom.js"></script>
+        <script src="js/custom.js"></script>
         @livewireScripts
     </body>
 </html>
