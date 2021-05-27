@@ -13,13 +13,14 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="css/custom.css">
 
-
+        @livewireStyles
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
+    <body class="">
         {{ $slot }}
 
-        <script src="js/custom.js"></script>
+        <script src="'js/custom.js"></script>
+        @livewireScripts
     </body>
 </html>
