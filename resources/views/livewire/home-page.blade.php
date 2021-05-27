@@ -15,7 +15,7 @@
         <label for="uploadImage" class="cursor-pointer m-5 flex items-center border-gray-300 bg-gray-100 border-1 border-dashed border-2 p-5">
 
             <div class="w-10 h-10">
-                <img  src='./storage/img/image.svg' alt="upload">
+                <img  src='storage/img/image.svg' alt="upload">
             </div>
             <div class="ml-5 ">
                 <h3 class="font-bold text-purple-600">Upload Images <span class="text-gray-400 font-medium">or just drag and drop</span></h3>
