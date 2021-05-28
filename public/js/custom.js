@@ -87,11 +87,12 @@ const uploadWatermark = (canvas, logo) => {
             height = img.height;
 
             i = 0;
-            while(width > maxWidth && height > maxHeight){
-                width = width - 70;
-                height = height - 70;
+            while(width > maxWidth || height > maxHeight){
+                width = width / 1.5;
+                height = height / 1.5;
                 i++;
             }
+            console.log('max-width: '+maxWidth, 'width-'+width, 'max-height: '+maxHeight, 'height-'+height);
             ctx.globalAlpha = 0.5;
             ctx.drawImage(img, 30, 30, width, height);
             ctx.globalAlpha = 1;
