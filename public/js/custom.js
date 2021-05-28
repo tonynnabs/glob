@@ -1,7 +1,12 @@
-var imageLoader = document.getElementById("uploadImage");
-var logoLoader = document.getElementById("uploadLogo");
+var imageInput = document.getElementById("imageInput");
+var logoInput = document.getElementById("logoInput");
 const downloadButton = document.getElementById('download');
 const container = document.getElementById('container');
+const uploadContainer = document.getElementById('uploadContainer');
+const logoContainer = document.getElementById('logoContainer');
+const imageText = document.querySelectorAll('.image-text');
+const watermarkText = document.querySelectorAll('.watermark-text');
+const watermarkDiv = document.querySelector('.watermarkDiv');
 
 
 function fitToContainer(canvas){
@@ -101,14 +106,44 @@ function download(canvas){
         link.href = image;
         link.download = 'image.png';
         link.click();
-        logoLoader.value = '';
-        imageLoader.value = '';
+        logoInput.value = '';
+        imageInput.value = '';
         canvas.remove();
     }
 
 }
+function toggleText(className){
+    className.forEach(element => {
+        element.classList.toggle('text-active');
+    });
+}
 
-imageLoader.addEventListener('change', uploadImage);
-logoLoader.addEventListener('change', drawMark);
+function toggleAction(){
+    if( imageInput.files.length > 0 ){
+       uploadContainer.classList.add('inactive');
+       toggleText(imageText);
+       watermarkDiv.classList.remove('cursor-not-allowed');
+       logoContainer.classList.remove('pointer-events-none');
+       logoContainer.style.cursor='pointer';
+       logoContainer.classList.toggle('active');
+       toggleText(watermarkText);
+    }else{
+        uploadContainer.classList.toggle('inactive');
+        toggleText(imageText);
+        toggleText(watermarkText);
+        logoContainer.classList.toggle('active');
+        logoContainer.classList.add('pointer-events-none');
+        watermarkDiv.classList.add('cursor-not-allowed');
+
+    }
+}
+
+
+imageInput.addEventListener('change', function(e){
+    uploadImage(e);
+    toggleAction();
+
+});
+logoInput.addEventListener('change', drawMark);
 downloadButton.addEventListener('click', download);
 

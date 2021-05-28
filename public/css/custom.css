@@ -23,4 +23,17 @@ body {
     font-family: 'Kaushan Script', cursive;
 }
 
+.active {
+    border-color: #7C3AED;
+    pointer-events: auto !important;
+}
+
+.text-active {
+    color: #7C3AED !important;
+}
+
+.inactive {
+    border-color: #D1D5DB !important;
+}
+
 
