@@ -104,14 +104,20 @@ function download(canvas){
         const image = canvas.toDataURL();
         const link = document.createElement('a');
         link.href = image;
-        link.download = 'image.png';
+        link.download = 'image'+ Date.now();
         link.click();
         logoInput.value = '';
         imageInput.value = '';
         canvas.remove();
     }
+    toggleAction();
 
 }
+
+/**
+ * Change text color to active color
+ * @param {string} className
+ */
 function toggleText(className){
     className.forEach(element => {
         element.classList.toggle('text-active');
@@ -137,7 +143,6 @@ function toggleAction(){
 
     }
 }
-
 
 imageInput.addEventListener('change', function(e){
     uploadImage(e);
