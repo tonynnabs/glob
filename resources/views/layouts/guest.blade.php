@@ -19,7 +19,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
     </head>
-    <body class="relative">
+    <body class="relative antialiased">
         {{ $slot }}
 
         <script src="js/custom.js"></script>

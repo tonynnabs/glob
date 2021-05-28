@@ -90,8 +90,17 @@ const uploadWatermark = (canvas, e) => {
             ctx.globalAlpha = 0.5;
             ctx.drawImage(img, 30, 30, width, height);
             ctx.globalAlpha = 1;
+
+            console.log('redrawn watermark');
+
+            downloadButton.classList.add('bg-purple-600');
+            downloadButton.parentElement.classList.remove('cursor-not-allowed');
+            downloadButton.parentElement.classList.add('cursor-pointer');
+
+            activeUpload();
         };
     };
+
 };
 
 /**
@@ -118,30 +127,45 @@ function download(canvas){
  * Change text color to active color
  * @param {string} className
  */
-function toggleText(className){
+function toggleText(className, action){
     className.forEach(element => {
-        element.classList.toggle('text-active');
+        element.classList+'.'+action+('text-active');
     });
 }
 
 function toggleAction(){
     if( imageInput.files.length > 0 ){
        uploadContainer.classList.add('inactive');
-       toggleText(imageText);
+       imageText.forEach(element => {
+         element.classList.remove('text-active');
+        });
        watermarkDiv.classList.remove('cursor-not-allowed');
        logoContainer.classList.remove('pointer-events-none');
        logoContainer.style.cursor='pointer';
-       logoContainer.classList.toggle('active');
-       toggleText(watermarkText);
+       logoContainer.classList.add('active');
+       watermarkText.forEach(element => {
+        element.classList.add('text-active');
+       });
     }else{
-        uploadContainer.classList.toggle('inactive');
-        toggleText(imageText);
-        toggleText(watermarkText);
-        logoContainer.classList.toggle('active');
-        logoContainer.classList.add('pointer-events-none');
-        watermarkDiv.classList.add('cursor-not-allowed');
-
+        activeUpload();
     }
+}
+
+function activeUpload(){
+    uploadContainer.classList.remove('inactive');
+    imageText.forEach(element => {
+        element.classList.add('text-active');
+    });
+    watermarkText.forEach(element => {
+        element.classList.remove('text-active');
+    });
+    logoContainer.classList.remove('active');
+    logoContainer.classList.add('pointer-events-none');
+    watermarkDiv.classList.add('cursor-not-allowed');
+
+    downloadButton.classList.remove('bg-purple-600');
+    downloadButton.parentElement.classList.add('cursor-not-allowed');
+    downloadButton.parentElement.classList.remove('cursor-pointer');
 }
 
 imageInput.addEventListener('change', function(e){

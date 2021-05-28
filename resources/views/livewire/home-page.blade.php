@@ -1,15 +1,19 @@
-<div class="flex flex-col lg:flex-row">
+<div class="flex flex-col lg:flex-row ">
     <div class="w-full lg:w-96 h-full lg:h-screen max-h-screen top-0 block lg:sticky z-50">
         <div class="bg-purple-600 flex flex-col w-full h-full overflow-hidden">
                 <div class=" flex flex-col" >
                     <div class="bg-purple-800">
-                        <h1 id="logo" class="p-5 text-4xl text-white">Easymark</h1>
+                        <h1 id="logo" class="p-5 text-2xl text-white">Ezwatermark</h1>
                     </div>
                 </div>
         </div>
     </div>
 
-    <div class="w-full justify-between relative flex flex-col">
+    <div class="w-full justify-between relative flex flex-col pt-10">
+        <div class="flex flex-col justify-center items-center">
+            <h2 class="text-4xl">Add Custom Watermark to 15 Photos in 2 Mins</h2>
+            <p class="text-lg mt-3">Brand your photo right in your browser. Add your custom watermark with your logo.</p>
+        </div>
         <div class="flex flex-col md:flex-row items-center">
             <div class="lg:w-full imageDiv m-5">
                 <label for="imageInput" id="uploadContainer" class="w-full cursor-pointer  flex items-center border-purple-600 bg-gray-100 border-1 border-dashed border-2 p-5">
@@ -20,8 +24,8 @@
                           </svg>
                     </div>
                     <div class="ml-5 ">
-                        <h3 class="font-bold text-gray-400 text-active image-text">Upload Images <span class="text-gray-500 font-medium">or just drag and drop Add at most 10 images</span></h3>
-
+                        <h3 class="font-bold text-gray-400 text-active image-text">Upload Images</h3>
+                        <p class="text-gray-500 font-medium">or just drag and drop Add at most 10 images</p>
                     </div>
                 </label>
 
@@ -35,8 +39,8 @@
                           </svg>
                     </div>
                     <div class="ml-5 ">
-                        <h3 class="font-bold watermark-text text-gray-400">Upload Watermark <span class="text-gray-500 font-medium">or just drag and drop Logo should not have a background</span></h3>
-
+                        <h3 class="font-bold watermark-text text-gray-400">Upload Watermark</h3>
+                        <p class="text-gray-500 font-medium">or just drag and drop Logo should not have a background</p>
                     </div>
                 </label>
             </div>
@@ -50,8 +54,8 @@
                     <div>
                         <p class="text-gray-500 text-center">Made with <span class="text-red-500">&#10084;</span> <span class="text-blue-400 underline">Tonynnabs</span> </p>
                     </div>
-                    <div>
-                        <button class="bg-purple-600 rounded-lg text-white py-2 px-4 text-lg w-full mb-3 md:mb-0" id="download">Download Images</button>
+                    <div class="cursor-not-allowed">
+                        <button class="bg-gray-400 rounded-md pointer-events-none  text-white py-2 px-4 text-lg w-full mb-3 md:mb-0 focus:outline-none" id="download">Download Images</button>
                     </div>
                 </div>
             </div>
