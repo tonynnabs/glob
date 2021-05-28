@@ -10,9 +10,9 @@
     </div>
 
     <div class="w-full justify-between relative flex flex-col pt-10">
-        <div class="flex flex-col justify-center items-center">
-            <h2 class="text-4xl">Add Custom Watermark to 15 Photos in 2 Mins</h2>
-            <p class="text-lg mt-3">Brand your photo right in your browser. Add your custom watermark with your logo.</p>
+        <div class="flex flex-col justify-center items-center mx-5">
+            <h2 class="text-4xl text-center leading-10">Add Custom Watermark to 15 Photos in 2 Mins</h2>
+            <p class="text-lg mt-3 text-center">Brand your photo right in your browser. Add your custom watermark with your logo.</p>
         </div>
         <div class="flex flex-col md:flex-row items-center">
             <div class="lg:w-full imageDiv m-5">
