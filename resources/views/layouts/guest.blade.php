@@ -12,15 +12,18 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css" />
 
         @livewireStyles
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
     </head>
-    <body class="">
+    <body class="relative">
         {{ $slot }}
 
         <script src="js/custom.js"></script>
+
         @livewireScripts
     </body>
 </html>

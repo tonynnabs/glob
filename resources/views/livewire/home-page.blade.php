@@ -1,15 +1,17 @@
-<div class="flex flex-col lg:flex-row ">
-    <div class="bg-purple-600 h-screen flex flex-col w-96 z-50">
-        <div class="bg-purple-800">
-           <h1 id="logo" class="p-5 text-4xl text-white">Easymark</h1>
-        </div>
-        <div class="p-10 h-full w-full flex justify-center items-center">
-
+<div class="flex flex-col lg:flex-row">
+    <div class="w-full lg:w-96 h-full lg:h-screen max-h-screen top-0 block lg:sticky z-50">
+        <div class="bg-purple-600 flex flex-col w-full h-full overflow-hidden">
+                <div class=" flex flex-col" >
+                    <div class="bg-purple-800">
+                        <h1 id="logo" class="p-5 text-4xl text-white">Easymark</h1>
+                    </div>
+                </div>
         </div>
     </div>
-    <div class="w-full max-h-full relative flex flex-col">
-        <div class="flex items-center">
-            <div class="w-full imageDiv m-5">
+
+    <div class="w-full justify-between relative flex flex-col">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="lg:w-full imageDiv m-5">
                 <label for="imageInput" id="uploadContainer" class="w-full cursor-pointer  flex items-center border-purple-600 bg-gray-100 border-1 border-dashed border-2 p-5">
                     <input class="hidden"  type="file" id="imageInput" name="imageInput" multiple>
                     <div class="w-10 h-10">
@@ -18,13 +20,13 @@
                           </svg>
                     </div>
                     <div class="ml-5 ">
-                        <h3 class="font-bold text-gray-400 text-active image-text">Upload Images <span class="text-gray-500 font-medium">or just drag and drop</span></h3>
-                        <p class="text-gray-500 font-medium">Add at most 10 images</p>
+                        <h3 class="font-bold text-gray-400 text-active image-text">Upload Images <span class="text-gray-500 font-medium">or just drag and drop Add at most 10 images</span></h3>
+
                     </div>
                 </label>
 
             </div>
-            <div class="w-full watermarkDiv cursor-not-allowed m-5">
+            <div class="lg:w-full watermarkDiv cursor-not-allowed m-5">
                 <label for="logoInput" id="logoContainer" class="w-full  pointer-events-none flex items-center border-gray-300 bg-gray-100 border-1 border-dashed border-2 p-5">
                     <input class="hidden" type="file" id="logoInput" name="logoInput">
                     <div class="w-10 h-10">
@@ -33,8 +35,8 @@
                           </svg>
                     </div>
                     <div class="ml-5 ">
-                        <h3 class="font-bold watermark-text text-gray-400">Upload Watermark <span class="text-gray-500 font-medium">or just drag and drop</span></h3>
-                        <p class="text-gray-500 font-medium">Logo should not have a background</p>
+                        <h3 class="font-bold watermark-text text-gray-400">Upload Watermark <span class="text-gray-500 font-medium">or just drag and drop Logo should not have a background</span></h3>
+
                     </div>
                 </label>
             </div>
@@ -42,15 +44,18 @@
         <div class="bg-gray-200 h-full mx-5 flex overflow-x-auto overflow-y-auto" id="container">
             {{-- canvas will be rendered here --}}
         </div>
-        <footer class="bg-white absolute w-full bottom-0 py-5 px-8" style="box-shadow: 0px 0 10px rgba(182, 182, 182, 0.8);">
-            <div class="flex justify-between items-center">
-                <div>
-                    <p class="text-gray-500">Made with <span class="text-red-500">&#10084;</span> <span class="text-blue-400 underline">Tonynnabs</span> </p>
-                </div>
-                <div>
-                    <button class="bg-purple-600 rounded-lg text-white py-2 px-4 text-lg" id="download">Download Images</button>
+        <footer class="sticky w-full bottom-0">
+            <div class="bg-white w-full py-5 px-8" style="box-shadow: 0px 0 10px rgba(182, 182, 182, 0.8);">
+                <div class="flex md:flex-row flex-col-reverse justify-between md:items-center">
+                    <div>
+                        <p class="text-gray-500 text-center">Made with <span class="text-red-500">&#10084;</span> <span class="text-blue-400 underline">Tonynnabs</span> </p>
+                    </div>
+                    <div>
+                        <button class="bg-purple-600 rounded-lg text-white py-2 px-4 text-lg w-full mb-3 md:mb-0" id="download">Download Images</button>
+                    </div>
                 </div>
             </div>
+
 
         </footer>
     </div>
