@@ -34,6 +34,8 @@ function createCanvas(image){
             canvas.width = img.width;
             canvas.height = img.height;
             ctx.drawImage(img, 0, 0);
+
+
         };
     };
 }
@@ -49,16 +51,19 @@ const uploadImage = (e) => {
         createCanvas(e.target.files[i]);
         i++
     }
+    if(logoInput.files.length > 0){
+        drawMark(logoInput);
+    }
 };
 
 /**
  * Drawing watermark
  * @param {e} e
  */
-function drawMark(e){
+function drawMark(logo){
     let allCanvas = document.querySelectorAll('canvas');
     for (var i = 0; i < allCanvas.length; i++) {
-        uploadWatermark(allCanvas[i], e);
+        uploadWatermark(allCanvas[i], logo.files[0]);
     }
 }
 
@@ -67,12 +72,12 @@ function drawMark(e){
  * @param {canvas} canvas
  * @param {e} e
  */
-const uploadWatermark = (canvas, e) => {
+const uploadWatermark = (canvas, logo) => {
     var reader = new FileReader();
     var img = new Image();
     var canvas = canvas;
     var ctx = canvas.getContext('2d');
-    reader.readAsDataURL(e.target.files[0]);
+    reader.readAsDataURL(logo);
     reader.onload = () => {
         img.src = reader.result;
         img.onload = () => {
@@ -91,13 +96,11 @@ const uploadWatermark = (canvas, e) => {
             ctx.drawImage(img, 30, 30, width, height);
             ctx.globalAlpha = 1;
 
-            console.log('redrawn watermark');
-
+            activateUpload();
             downloadButton.classList.add('bg-purple-600');
             downloadButton.parentElement.classList.remove('cursor-not-allowed');
             downloadButton.parentElement.classList.add('cursor-pointer');
-
-            activeUpload();
+            downloadButton.classList.remove('pointer-events-none');
         };
     };
 
@@ -115,7 +118,6 @@ function download(canvas){
         link.href = image;
         link.download = 'image'+ Date.now();
         link.click();
-        logoInput.value = '';
         imageInput.value = '';
         canvas.remove();
     }
@@ -123,18 +125,8 @@ function download(canvas){
 
 }
 
-/**
- * Change text color to active color
- * @param {string} className
- */
-function toggleText(className, action){
-    className.forEach(element => {
-        element.classList+'.'+action+('text-active');
-    });
-}
-
 function toggleAction(){
-    if( imageInput.files.length > 0 ){
+    if( imageInput.files.length > 0 && logoInput.files.length <= 0){
        uploadContainer.classList.add('inactive');
        imageText.forEach(element => {
          element.classList.remove('text-active');
@@ -147,11 +139,11 @@ function toggleAction(){
         element.classList.add('text-active');
        });
     }else{
-        activeUpload();
+        activateUpload();
     }
 }
 
-function activeUpload(){
+function activateUpload(){
     uploadContainer.classList.remove('inactive');
     imageText.forEach(element => {
         element.classList.add('text-active');
@@ -166,6 +158,7 @@ function activeUpload(){
     downloadButton.classList.remove('bg-purple-600');
     downloadButton.parentElement.classList.add('cursor-not-allowed');
     downloadButton.parentElement.classList.remove('cursor-pointer');
+    downloadButton.classList.add('pointer-events-none');
 }
 
 imageInput.addEventListener('change', function(e){
@@ -173,6 +166,8 @@ imageInput.addEventListener('change', function(e){
     toggleAction();
 
 });
-logoInput.addEventListener('change', drawMark);
+logoInput.addEventListener('change', function(){
+    drawMark(logoInput);
+});
 downloadButton.addEventListener('click', download);
 
