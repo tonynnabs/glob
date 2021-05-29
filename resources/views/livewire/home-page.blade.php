@@ -2,8 +2,9 @@
     <div class="w-full lg:w-96 h-full lg:h-screen max-h-screen top-0 block lg:sticky z-50">
         <div class="bg-purple-600 flex flex-col w-full h-full overflow-hidden">
                 <div class=" flex flex-col" >
-                    <div class="bg-purple-800">
+                    <div class="bg-purple-800 flex items-center">
                         <h1 id="logo" class="p-5 text-2xl text-white">watermark.run</h1>
+                        <span class="text-black font-bold bg-yellow-500 rounded-md py-1 px-2" style="font-size: 10px;">alpha v2.0.1</span>
                     </div>
                 </div>
         </div>
