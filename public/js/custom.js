@@ -3,6 +3,7 @@ var logoInput = document.getElementById("logoInput");
 const downloadButton = document.getElementById('download');
 const container = document.getElementById('container');
 const uploadContainer = document.getElementById('uploadContainer');
+const resetWatermark = document.getElementById('resetWatermark');
 const logoContainer = document.getElementById('logoContainer');
 const imageText = document.querySelectorAll('.image-text');
 const watermarkText = document.querySelectorAll('.watermark-text');
@@ -102,10 +103,19 @@ const uploadWatermark = (canvas, logo) => {
             downloadButton.parentElement.classList.remove('cursor-not-allowed');
             downloadButton.parentElement.classList.add('cursor-pointer');
             downloadButton.classList.remove('pointer-events-none');
+
+            resetWatermark.classList.remove('hidden');
         };
     };
 
 };
+
+function resetMark(){
+    logoInput.value='';
+    resetWatermark.classList.add('hidden');
+    container.innerHTML = '';
+    resetDelete();
+}
 
 /**
  * Downloading finished images
@@ -123,6 +133,7 @@ function download(canvas){
         canvas.remove();
     }
     toggleAction();
+    resetWatermark.classList.add('hidden');
 
 }
 
@@ -155,7 +166,12 @@ function activateUpload(){
     logoContainer.classList.remove('active');
     logoContainer.classList.add('pointer-events-none');
     watermarkDiv.classList.add('cursor-not-allowed');
+    resetDelete();
 
+
+}
+
+function resetDelete(){
     downloadButton.classList.remove('bg-purple-600');
     downloadButton.parentElement.classList.add('cursor-not-allowed');
     downloadButton.parentElement.classList.remove('cursor-pointer');
@@ -171,4 +187,5 @@ logoInput.addEventListener('change', function(){
     drawMark(logoInput);
 });
 downloadButton.addEventListener('click', download);
+resetWatermark.addEventListener('click', resetMark);
 
