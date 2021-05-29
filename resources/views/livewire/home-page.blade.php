@@ -50,9 +50,9 @@
             {{-- canvas will be rendered here --}}
         </div>
         <footer class="sticky w-full bottom-0">
-            <div class="bg-white w-full py-5 px-8" style="box-shadow: 0px 0 10px rgba(182, 182, 182, 0.8);">
+            <div class="bg-white w-full py-4 px-8" style="box-shadow: 0px 0 10px rgba(182, 182, 182, 0.8);">
                 <div class="flex md:flex-row flex-col-reverse justify-between md:items-center">
-                    <div>
+                    <div class="mt-3 lg:mt-0">
                         <p class="text-gray-500 text-center">Made with <span class="text-red-500">&#10084;</span> <span class="text-blue-400 underline">Tonynnabs</span> </p>
                     </div>
                     <div class="flex justify-center items-center">
@@ -64,7 +64,7 @@
                                   Reset
                             </div>
                         </button>
-                        <div class="cursor-not-allowed">
+                        <div class="cursor-not-allowed w-full">
                             <button class="bg-gray-300 rounded-md pointer-events-none  text-white py-2 px-4 text-sm lg:text-lg w-full transition-all ease-in-out duration-300  focus:outline-none" id="download">Download Images</button>
                         </div>
                     </div>
